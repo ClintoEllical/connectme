@@ -1,0 +1,423 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+                0 10px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    min-height: 700px;
+}
+
+/* Left Section - Branding */
+.left-section {
+    flex: 1;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 60px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.left-section::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    top: -100px;
+    left: -100px;
+}
+
+.left-section::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    bottom: -50px;
+    right: -50px;
+}
+
+.branding {
+    z-index: 1;
+    text-align: center;
+    color: #ffffff;
+}
+
+.logo {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    letter-spacing: -1px;
+}
+
+.tagline {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    font-weight: 300;
+    opacity: 0.95;
+    max-width: 350px;
+}
+
+/* Right Section - Form */
+.right-section {
+    flex: 1;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.form-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.form-subtitle {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Form Styles */
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.form-group.half {
+    flex: 1;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 16px 18px;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 2px solid #e1e8ed;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+    color: #1a1a1a;
+    outline: none;
+    /* Mobile optimization */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #667eea;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15),
+                0 2px 4px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #95a5a6;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+/* Submit Button - Enhanced touch target */
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    min-height: 48px; /* Mobile touch target minimum */
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3),
+                0 2px 6px rgba(102, 126, 234, 0.2);
+    margin-bottom: 15px;
+    /* Mobile touch optimization */
+    -webkit-tap-highlight-color: transparent;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4),
+                0 4px 10px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Response Message */
+#responseMessage {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: none;
+}
+
+#responseMessage.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+#responseMessage.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 25px 0;
+    color: #95a5a6;
+    font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #e1e8ed;
+}
+
+.divider span {
+    padding: 0 15px;
+    font-weight: 500;
+}
+
+/* Create Account Button */
+.create-account-btn {
+    width: 100%;
+    padding: 14px;
+    min-height: 48px; /* Mobile touch target minimum */
+    font-size: 1rem;
+    font-weight: 600;
+    color: #667eea;
+    background: #ffffff;
+    border: 2px solid #667eea;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.create-account-btn:hover {
+    background: #f0f3ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+/* Footer */
+.page-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e1e8ed;
+}
+
+.page-footer p {
+    color: #95a5a6;
+    font-size: 0.85rem;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MOBILE FIRST APPROACH
+   ============================================ */
+
+/* Tablet devices (768px - 968px) */
+@media (max-width: 968px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-section {
+        padding: 40px 30px;
+        min-height: 250px;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .right-section {
+        padding: 40px 30px;
+    }
+}
+
+/* Mobile devices (up to 600px) */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        border-radius: 15px;
+        min-height: auto;
+    }
+
+    .left-section {
+        padding: 30px 20px;
+        min-height: 200px;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 0.95rem;
+        max-width: 100%;
+    }
+
+    .right-section {
+        padding: 30px 20px;
+    }
+
+    .form-container {
+        max-width: 100%;
+    }
+
+    .form-title {
+        font-size: 1.5rem;
+    }
+
+    .form-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+    }
+
+    /* Stack form rows on mobile for better usability */
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .form-group.half {
+        width: 100%;
+    }
+
+    /* Larger touch targets on mobile */
+    .form-group input,
+    .form-group textarea {
+        padding: 18px;
+        font-size: 16px; /* Prevents iOS zoom on focus */
+    }
+
+    .submit-btn {
+        padding: 18px;
+        font-size: 1.05rem;
+    }
+
+    .create-account-btn {
+        padding: 16px;
+        font-size: 0.95rem;
+    }
+
+    .page-footer {
+        margin-top: 20px;
+    }
+}
+
+/* Extra small devices (up to 400px) */
+@media (max-width: 400px) {
+    body {
+        padding: 5px;
+    }
+
+    .container {
+        border-radius: 12px;
+    }
+
+    .left-section {
+        padding: 25px 15px;
+        min-height: 180px;
+    }
+
+    .logo {
+        font-size: 1.75rem;
+    }
+
+    .tagline {
+        font-size: 0.9rem;
+    }
+
+    .right-section {
+        padding: 25px 15px;
+    }
+
+    .form-title {
+        font-size: 1.35rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 16px;
+    }
+}
