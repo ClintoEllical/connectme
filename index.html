@@ -25,6 +25,7 @@
                     <input type="hidden" name="_subject" value="New Contact Form Submission from CONNECT ME">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://clintoellical.github.io/connectme/thankyou.html">
                     
                     <div class="form-row">
                         <div class="form-group half">
@@ -91,11 +92,11 @@
                     'Accept': 'application/json'
                 }
             }).then(response => {
-                // Redirect to thank you page regardless of response
-                window.location.href = 'thankyou.html';
+                // Redirect to thank you page
+                window.location.href = 'https://clintoellical.github.io/connectme/thankyou.html';
             }).catch(error => {
                 // Even if there's an error, redirect to thank you page
-                window.location.href = 'thankyou.html';
+                window.location.href = 'https://clintoellical.github.io/connectme/thankyou.html';
             });
         });
     </script>
